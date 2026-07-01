@@ -7,6 +7,18 @@ let todos = [
   { id: 2, task: 'Build CRUD API', completed: false },
 ];
 
+app.get('/', (req, res) => {
+  res.json({
+    message: "Todo API is running successfully ✅ ",
+    routes: [
+      "/todos",
+      "/todos/:id",
+      "/todos/active",
+      "/todos/completed"
+    ]
+  });
+});
+
 // GET All – Read
 app.get('/todos', (req, res) => {
   res.status(200).json(todos); // Send array as JSON
